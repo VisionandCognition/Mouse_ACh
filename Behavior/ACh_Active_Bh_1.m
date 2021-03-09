@@ -1,3 +1,10 @@
+%% Description
+%  This file analyze the behavioral log file
+%  And plot instantenous D-prime, Lick raster, and report trials meeting
+%  the 1sNL criteria
+
+%%
+
 % Input base file name
 fn.animal = input('Enter animal name =','s');
 fn.date = input('Enter date (YYYYMMDD) =','s');
