@@ -6,10 +6,10 @@
 %%
 
 % Input base file name
-fn.animal = input('Enter animal name =','s');
-fn.date = input('Enter date (YYYYMMDD) =','s');
-fn.session = input('Enter session num. (e.g. 001) =','s');
-fn.base = strcat(fn.animal,'_', fn.date,'_',fn.session);
+fn_bh.animal = input('Enter animal name =','s');
+fn_bh.date = input('Enter date (YYYYMMDD) =','s');
+fn_bh.session = input('Enter session num. (e.g. 001) =','s');
+fn_bh.base = strcat(fn_bh.animal,'_', fn_bh.date,'_',fn_bh.session);
 
 % Convert t_stim and t_lick to ms
 t_trl_abs = t_trl_abs';
@@ -83,9 +83,9 @@ xline(0);
 xline(2000);hold off;
 ylim([1 ntrls]);
 xlabel('Time rel. onset (ms)'); ylabel('Trial');
-title(fn.base,'Interpreter', 'none');
+title(fn_bh.base,'Interpreter', 'none');
 set(gcf,'color','w');
-savefig(lick_fig,strcat(fn.base,"_Bh_Lick"));
+savefig(lick_fig,strcat(fn_bh.base,"_Bh_Lick"));
 
 %% Check behavorial perf
 
@@ -98,9 +98,9 @@ trlN_BhStable.end = input('Enter trial end for stable performance =');
 xline(dp_ax,trlN_BhStable.start,'--g','LineWidth',1.5);
 xline(dp_ax,trlN_BhStable.end,'--g','LineWidth',1.5);
 hold off;
-title(fn.base,'Interpreter', 'none')
+title(fn_bh.base,'Interpreter', 'none')
 set(dp_fig,'color','w');
-savefig(dp_fig, strcat(fn.base,"_Bh_Dprime"));
+savefig(dp_fig, strcat(fn_bh.base,"_Bh_Dprime"));
 
 %% Find certain trials
 
@@ -137,4 +137,4 @@ disp(strcat('1sNL FA:',num2str(size(trlN_1sNL.FA,1))));
 
 %% Save
 
-save(strcat(fn.base,'_Bh'),'tc','trl_lick','trl_reward','trlN_1sNL','trlN_BhStable','trl_time_Bh','fn');
+save(strcat(fn_bh.base,'_Bh'),'tc','trl_lick','trl_reward','trlN_1sNL','trlN_BhStable','trl_time_Bh','fn_bh');

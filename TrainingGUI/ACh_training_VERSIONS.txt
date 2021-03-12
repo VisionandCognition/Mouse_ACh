@@ -20,7 +20,7 @@ V3d, 2020-03-04
 Added FA timeout for Passive w/ TS mode;
 Added a field Par.GUIver to log version number in the log.
 
-V3d_20pctHitProb, 2020-03-09
+V3d_20pctGoProb, 2020-03-09
 Modified v3d with go probability set to 1/5 for both passive and active trials
 
 
