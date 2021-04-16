@@ -85,14 +85,16 @@ xline(2000,'--r');
 txt = strcat('N=', num2str(size(trl_to_plot,1)));
 text(2000,0,txt,'FontSize',14);
 
-% subplot(2,2,1); ylim([-0.025 0.025]);
-% subplot(2,2,2); ylim([-0.025 0.025]);
-% subplot(2,2,3); ytyuiop[
-lim([-0.025 0.025]);
-% subplot(2,2,4); ylim([-0.025 0.025]);
+% Standarize y axis
+y1 = input('Enter common y minimum for all subplots =');
+y2 = input('Enter common y maximum for all subplots =');
+subplot(2,2,1); ylim([y1 y2]);
+subplot(2,2,2); ylim([y1 y2]);
+subplot(2,2,3); ylim([y1 y2]);
+subplot(2,2,4); ylim([y1 y2]);
 
-% sgtitle(strcat(fn,'_GREEN_Fullfield'),'Interpreter', 'none');
-% savefig(strcat(fn,"_GREEN_Fullfield_Outcomes"))
+sgtitle(fn_img.base,'Interpreter', 'none');
+savefig(strcat(fn_img.base,"_Outcomes"))
 
 
 
