@@ -4,24 +4,31 @@ Changed warning dialogs to WAITFOR type of warning dialogs;
 Fixed incorrect grey screen under NO-RED mode;
 Fixed potential errors upon STOP; Now the program saves the log first and then check if there's still an audio port to close; 
 
-V3, 2020-01-14
+V3, 2021-01-14
 Added sham click after nogo stim presentation; New audrino script Dual_lick_Bing_v3 needed
 Added Gaussian white-noise for NLDS/FA sound, either freq-modulated or GWN can be selected by commenting part of the GUI code. 
 
-V3b, 2020-02-02
+V3b, 2021-02-02
 Added FA detection and noise feedback during passive session no-go trial. If it is not needed, simply turn off the speaker. 
 Default duration for NLDS sound set to 0.1s because 0.2s often causes interfence when a further lick is emitted.
 
-V3c, 2020-02-10
+V3c, 2021-02-10
 Now also send a message to Scanbox informing the stim orientation at the begining of stim presentation.
 Added time_long to diagnose long-duration loop (>50ms)
 
-V3d, 2020-03-04
+V3d, 2021-03-04
 Added FA timeout for Passive w/ TS mode;
 Added a field Par.GUIver to log version number in the log.
 
-V3d_20pctGoProb, 2020-03-09
+V3d_20pctGoProb, 2021-03-09
 Modified v3d with go probability set to 1/5 for both passive and active trials
+
+V3e, 2021-04-21
+MAJOR:
+- The way timemarks for trial start and lick are determined is changed! Now AD reports it back to the GUI according to the clock on AD! This eliminates MATLAB scan port delay!
+- Requires AD script DualLick7_Bing_v5! 
+MINOR:
+- Sound disabled since there's no use anyway
 
 
 

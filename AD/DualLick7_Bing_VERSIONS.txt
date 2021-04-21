@@ -1,0 +1,12 @@
+v3 - standard
+
+v4 - 2021.04.09
+No pause during reward delivery.
+
+v5 - 2021.04.21
+Major change: 
+- AD reports time for trial start, lick
+- Added "IU" for session start (set the clock)
+- Redefine "IS" as the start of a trial right before stim
+- Introduce "IW" as the start of the response window
+GUIs will not work unless updated! 
