@@ -30,7 +30,8 @@ MAJOR:
 MINOR:
 - Sound disabled since there's no use anyway
 
-
+V4a, 2021-04-27
+Implemented trial abort & time-out for LDS. Function can be activated by setting NLDS to Y. Screen goes BLACK for NLDS timeout. 
 
 
 
