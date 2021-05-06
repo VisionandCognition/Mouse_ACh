@@ -31,59 +31,68 @@ end
 figure;
 subplot(2,2,1);
 trl_to_plot = trls_img_hit;
-semshade(trl_to_plot, 0.5, 'r', trl_time);
-title('Hit - 1sNL trials');
-grid on
-grid minor
-xlabel('ms')
-ylabel('df/f0')
-xline(0, '--g');
-xline(1000,'--k');
-xline(2000,'--r');
+if size(trl_to_plot,1) >= 3
+    semshade(trl_to_plot, 0.5, 'r', trl_time);
+    grid on
+    grid minor
+    xlabel('ms')
+    ylabel('df/f0')
+    xline(0, '--g');
+    xline(1000,'--k');
+    xline(2000,'--r');
+end
 txt = strcat('N=', num2str(size(trl_to_plot,1)));
 text(2000,0,txt,'FontSize',14);
+title('Hit - 1sNL trials');
 
 subplot(2,2,2);
 trl_to_plot = trls_img_CR;
-semshade(trl_to_plot, 0.5, 'r', trl_time);
-title('CR - 1sNL trials');
-grid on
-grid minor
-xlabel('ms')
-ylabel('df/f0')
-xline(0, '--g');
-xline(1000,'--k');
-xline(2000,'--r');
+if size(trl_to_plot,1) >= 3
+    semshade(trl_to_plot, 0.5, 'r', trl_time);
+    grid on
+    grid minor
+    xlabel('ms')
+    ylabel('df/f0')
+    xline(0, '--g');
+    xline(1000,'--k');
+    xline(2000,'--r');
+end
 txt = strcat('N=', num2str(size(trl_to_plot,1)));
 text(2000,0,txt,'FontSize',14);
+title('CR - 1sNL trials');
 
 subplot(2,2,4);
 trl_to_plot =  trls_img_FA;
-semshade(trl_to_plot, 0.5, 'r', trl_time);
-title('FA - 1sNL trials');
-grid on
-grid minor
-xlabel('ms')
-ylabel('df/f0')
-xline(0, '--g');
-xline(1000,'--k');
-xline(2000,'--r');
+if size(trl_to_plot,1) >= 3
+    semshade(trl_to_plot, 0.5, 'r', trl_time);
+    grid on
+    grid minor
+    xlabel('ms')
+    ylabel('df/f0')
+    xline(0, '--g');
+    xline(1000,'--k');
+    xline(2000,'--r');
+end
 txt = strcat('N=', num2str(size(trl_to_plot,1)));
 text(2000,0,txt,'FontSize',14);
+title('FA - 1sNL trials');
 
 subplot(2,2,3);
 trl_to_plot =  trls_img_miss;
-semshade(trl_to_plot, 0.5, 'r', trl_time);
-title('Miss - 1sNL trials');
-grid on
-grid minor
-xlabel('ms')
-ylabel('df/f0')
-xline(0, '--g');
-xline(1000,'--k');
-xline(2000,'--r');
+if size(trl_to_plot,1) >= 3
+    semshade(trl_to_plot, 0.5, 'r', trl_time);
+    grid on
+    grid minor
+    xlabel('ms')
+    ylabel('df/f0')
+    xline(0, '--g');
+    xline(1000,'--k');
+    xline(2000,'--r');
+end
 txt = strcat('N=', num2str(size(trl_to_plot,1)));
 text(2000,0,txt,'FontSize',14);
+title('Miss - 1sNL trials');
+
 
 % Standarize y axis
 y1 = input('Enter common y minimum for all subplots =');
