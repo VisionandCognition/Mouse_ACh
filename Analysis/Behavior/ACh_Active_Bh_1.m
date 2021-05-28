@@ -109,7 +109,7 @@ savefig(dp_fig, strcat(fn_bh.base,"_Bh_Dprime"));
 trl_list = [data_table.TrlType data_table.Outcome];
 
 % Find 1s-no-lick trials
-temp = sum(trl_lick(1000:1999,:))';
+temp = sum(trl_lick(1000:2499,:))'; % here we modify it to 1.5s
 trl_list(temp==0,3) = 1;
 clear temp
 
@@ -135,6 +135,21 @@ disp(strcat('1sNL miss:',num2str(size(trlN_1sNL.miss,1))));
 disp(strcat('1sNL CR:',num2str(size(trlN_1sNL.CR,1))));
 disp(strcat('1sNL FA:',num2str(size(trlN_1sNL.FA,1))));
 
+%% Round contrast values to 1 place right to the decimal point
+try 
+    data_table.Contrast = round(data_table.Contrast,1);
+catch ME
+    disp('Contrast info not found in data_table; Not a CB session.')
+end
+
+%% Indicate in the data_table if a trial is a 1sNL hit(1), miss(2), CR(3), or FA(4)
+data_table.OutcomeNL = zeros(size(data_table,1),1); % add a new field in the table, default to 0, i.e. not a 1sNL trial
+data_table.OutcomeNL(trlN_1sNL.hit) = 1; 
+data_table.OutcomeNL(trlN_1sNL.miss) = 2; 
+data_table.OutcomeNL(trlN_1sNL.CR) = 3; 
+data_table.OutcomeNL(trlN_1sNL.FA) = 4; 
+
+
 %% Save
 
-save(strcat(fn_bh.base,'_Bh'),'tc','trl_lick','trl_reward','trlN_1sNL','trlN_BhStable','trl_time_Bh','fn_bh');
+save(strcat(fn_bh.base,'_Bh'),'tc','trl_lick','trl_reward','trlN_1sNL','trlN_BhStable','trl_time_Bh','fn_bh','data_table');
