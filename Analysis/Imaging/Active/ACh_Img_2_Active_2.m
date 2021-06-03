@@ -28,6 +28,13 @@ for i = 1:size(list_CR,1)
 end
 
 %% Plotting
+
+try
+    NLcutoff = trlN_1sNL.cutoff*1000;
+catch
+    NLcutoff = 1000;
+end
+
 figure;
 subplot(2,2,1);
 trl_to_plot = trls_img_hit;
@@ -38,7 +45,7 @@ if size(trl_to_plot,1) >= 3
     xlabel('ms')
     ylabel('df/f0')
     xline(0, '--g');
-    xline(1000,'--k');
+    xline(NLcutoff,'--k');
     xline(2000,'--r');
 end
 txt = strcat('N=', num2str(size(trl_to_plot,1)));
@@ -54,7 +61,7 @@ if size(trl_to_plot,1) >= 3
     xlabel('ms')
     ylabel('df/f0')
     xline(0, '--g');
-    xline(1000,'--k');
+    xline(NLcutoff,'--k');
     xline(2000,'--r');
 end
 txt = strcat('N=', num2str(size(trl_to_plot,1)));
@@ -70,7 +77,7 @@ if size(trl_to_plot,1) >= 3
     xlabel('ms')
     ylabel('df/f0')
     xline(0, '--g');
-    xline(1000,'--k');
+    xline(NLcutoff,'--k');
     xline(2000,'--r');
 end
 txt = strcat('N=', num2str(size(trl_to_plot,1)));
@@ -86,7 +93,7 @@ if size(trl_to_plot,1) >= 3
     xlabel('ms')
     ylabel('df/f0')
     xline(0, '--g');
-    xline(1000,'--k');
+    xline(NLcutoff,'--k');
     xline(2000,'--r');
 end
 txt = strcat('N=', num2str(size(trl_to_plot,1)));

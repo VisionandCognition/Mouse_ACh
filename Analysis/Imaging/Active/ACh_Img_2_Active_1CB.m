@@ -17,13 +17,13 @@ elseif fn_bh.session ~= fn_img.session
 end
 
 %% Extract trials from img data
-selection = [data_table.Contrast == 1] & [data_table.OutcomeNL == 1];
+selection = [data_table.Contrast == 0.2] & [data_table.OutcomeNL == 1];
     eval(strcat('hit_',fn_img.date,'_',fn_img.session,'= data_trl_all_3d(selection,:,:)'));
-selection = [data_table.Contrast == 1] & [data_table.OutcomeNL == 3];
+selection = [data_table.Contrast == 0.2] & [data_table.OutcomeNL == 3];
     eval(strcat('CR_',fn_img.date,'_',fn_img.session,'= data_trl_all_3d(selection,:,:)'));
-selection = [data_table.Contrast == 1] & [data_table.OutcomeNL == 2];
+selection = [data_table.Contrast == 0.2] & [data_table.OutcomeNL == 2];
     eval(strcat('miss_',fn_img.date,'_',fn_img.session,'= data_trl_all_3d(selection,:,:)'));
-selection = [data_table.Contrast == 1] & [data_table.OutcomeNL == 4];
+selection = [data_table.Contrast == 0.2] & [data_table.OutcomeNL == 4];
     eval(strcat('FA_',fn_img.date,'_',fn_img.session,'= data_trl_all_3d(selection,:,:)'));
 
 %% Save

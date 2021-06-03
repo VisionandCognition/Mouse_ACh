@@ -110,6 +110,7 @@ trl_list = [data_table.TrlType data_table.Outcome];
 
 % Find 1s-no-lick trials
 temp = sum(trl_lick(1000:2499,:))'; % here we modify it to 1.5s
+    trlN_1sNL.cutoff = 1.5; % here we modify it to 1.5s
 trl_list(temp==0,3) = 1;
 clear temp
 
