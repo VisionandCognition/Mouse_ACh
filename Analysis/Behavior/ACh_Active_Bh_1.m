@@ -110,6 +110,7 @@ trl_list = [data_table.TrlType data_table.Outcome];
 
 % Find 1s-no-lick trials
 temp = sum(trl_lick(1000:2499,:))'; % here we modify it to 1.5s
+    trlN_1sNL.cutoff = 1.5; % here we modify it to 1.5s
 trl_list(temp==0,3) = 1;
 clear temp
 
@@ -135,11 +136,20 @@ disp(strcat('1sNL miss:',num2str(size(trlN_1sNL.miss,1))));
 disp(strcat('1sNL CR:',num2str(size(trlN_1sNL.CR,1))));
 disp(strcat('1sNL FA:',num2str(size(trlN_1sNL.FA,1))));
 
-%% Round contrast values to 1 place right to the decimal point
-try 
-    data_table.Contrast = round(data_table.Contrast,1);
-catch ME
-    disp('Contrast info not found in data_table; Not a CB session.')
+%% Determine session type
+if any(startsWith(data_table.Properties.VariableNames, 'Contrast'))
+    data_table.Contrast = round(data_table.Contrast,1); % Round contrast values to 1 place right to the decimal point
+    disp('CB session!');
+    sessionInfo.type = 'CB';
+    sessionInfo.note = [];
+elseif any(startsWith(data_table.Properties.VariableNames, 'Location'))
+    disp('This is a LB session!');
+    sessionInfo.type = 'LB';
+    sessionInfo.note = [];
+else
+    sessionInfo.type = 'N';
+    sessionInfo.note = [];
+    disp('This is a NORMAL session!');
 end
 
 %% Indicate in the data_table if a trial is a 1sNL hit(1), miss(2), CR(3), or FA(4)
@@ -152,4 +162,4 @@ data_table.OutcomeNL(trlN_1sNL.FA) = 4;
 
 %% Save
 
-save(strcat(fn_bh.base,'_Bh'),'tc','trl_lick','trl_reward','trlN_1sNL','trlN_BhStable','trl_time_Bh','fn_bh','data_table');
+save(strcat(fn_bh.base,'_Bh'),'tc','trl_lick','trl_reward','trlN_1sNL','trlN_BhStable','trl_time_Bh','fn_bh','data_table','sessionInfo');
