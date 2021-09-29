@@ -1,6 +1,6 @@
-print('Choose an action to perform:')
-print('1 - Plot tuning for all ROIs combined');
-print('2 - Plot tuning for a particular ROI');
+disp('Choose an action to perform:')
+disp('1 - Plot tuning for all ROIs combined');
+disp('2 - Plot tuning for a particular ROI');
 choice = input('Enter your choice =');
 
 if choice == 1

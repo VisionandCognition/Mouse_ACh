@@ -16,22 +16,25 @@ elseif fn_bh.session ~= fn_img.session
     error('Session numbers do not match!');
 end
 
+
 %% Extract trials from img data
-selection = [data_table.Contrast == 0.2] & [data_table.OutcomeNL == 1];
+    
+% Location 1
+selection = [data_table.Location == 1] & [data_table.OutcomeNL == 1];
     eval(strcat('hit_',fn_img.date,'_',fn_img.session,'= data_trl_all_3d(selection,:,:);'));
     eval(strcat('lick_hit_',fn_img.date,'_',fn_img.session,'= trl_lick(:,selection);'));
-selection = [data_table.Contrast == 0.2] & [data_table.OutcomeNL == 3];
+selection = [data_table.Location == 1] & [data_table.OutcomeNL == 3];
     eval(strcat('CR_',fn_img.date,'_',fn_img.session,'= data_trl_all_3d(selection,:,:);'));
     eval(strcat('lick_CR_',fn_img.date,'_',fn_img.session,'= trl_lick(:,selection);'));
-selection = [data_table.Contrast == 0.2] & [data_table.OutcomeNL == 2];
+selection = [data_table.Location == 1] & [data_table.OutcomeNL == 2];
     eval(strcat('miss_',fn_img.date,'_',fn_img.session,'= data_trl_all_3d(selection,:,:);'));
     eval(strcat('lick_miss_',fn_img.date,'_',fn_img.session,'= trl_lick(:,selection);'));
-selection = [data_table.Contrast == 0.2] & [data_table.OutcomeNL == 4];
+selection = [data_table.Location == 1] & [data_table.OutcomeNL == 4];
     eval(strcat('FA_',fn_img.date,'_',fn_img.session,'= data_trl_all_3d(selection,:,:);'));
     eval(strcat('lick_FA_',fn_img.date,'_',fn_img.session,'= trl_lick(:,selection);'));
-sessionInfo.note = 'C20';
+sessionInfo.note = 'Loc1';
 % Save
-save(strcat(fn_img.base,'_ImgBase_1sNL_C20'), strcat('hit_',fn_img.date,'_',fn_img.session),...
+save(strcat(fn_img.base,'_ImgBase_1sNL_Loc1'), strcat('hit_',fn_img.date,'_',fn_img.session),...
     strcat('CR_',fn_img.date,'_',fn_img.session),...
     strcat('miss_',fn_img.date,'_',fn_img.session),...
     strcat('FA_',fn_img.date,'_',fn_img.session), ...
@@ -40,25 +43,25 @@ save(strcat(fn_img.base,'_ImgBase_1sNL_C20'), strcat('hit_',fn_img.date,'_',fn_i
     strcat('lick_miss_',fn_img.date,'_',fn_img.session),...
     strcat('lick_FA_',fn_img.date,'_',fn_img.session), 'sessionInfo','fn_img','trl_time','trlN_1sNL');
 
-
-selection = [data_table.Contrast == 1] & [data_table.OutcomeNL == 1];
+% Location 0
+selection = [data_table.Location == 0] & [data_table.OutcomeNL == 1];
     eval(strcat('hit_',fn_img.date,'_',fn_img.session,'= data_trl_all_3d(selection,:,:);'));
     eval(strcat('lick_hit_',fn_img.date,'_',fn_img.session,'= trl_lick(:,selection);'));
-selection = [data_table.Contrast == 1] & [data_table.OutcomeNL == 3];
+selection = [data_table.Location == 0] & [data_table.OutcomeNL == 3];
     eval(strcat('CR_',fn_img.date,'_',fn_img.session,'= data_trl_all_3d(selection,:,:);'));
     eval(strcat('lick_CR_',fn_img.date,'_',fn_img.session,'= trl_lick(:,selection);'));
-selection = [data_table.Contrast == 1] & [data_table.OutcomeNL == 2];
+selection = [data_table.Location == 0] & [data_table.OutcomeNL == 2];
     eval(strcat('miss_',fn_img.date,'_',fn_img.session,'= data_trl_all_3d(selection,:,:);'));
     eval(strcat('lick_miss_',fn_img.date,'_',fn_img.session,'= trl_lick(:,selection);'));
-selection = [data_table.Contrast == 1] & [data_table.OutcomeNL == 4];
+selection = [data_table.Location == 0] & [data_table.OutcomeNL == 4];
     eval(strcat('FA_',fn_img.date,'_',fn_img.session,'= data_trl_all_3d(selection,:,:);'));
     eval(strcat('lick_FA_',fn_img.date,'_',fn_img.session,'= trl_lick(:,selection);'));
-sessionInfo.note = 'C100';
+sessionInfo.note = 'Loc0';
 % Save
-save(strcat(fn_img.base,'_ImgBase_1sNL_C100'), strcat('hit_',fn_img.date,'_',fn_img.session),...
+save(strcat(fn_img.base,'_ImgBase_1sNL_Loc0'), strcat('hit_',fn_img.date,'_',fn_img.session),...
     strcat('CR_',fn_img.date,'_',fn_img.session),...
     strcat('miss_',fn_img.date,'_',fn_img.session),...
-    strcat('FA_',fn_img.date,'_',fn_img.session), ...
+    strcat('FA_',fn_img.date,'_',fn_img.session),...
     strcat('lick_hit_',fn_img.date,'_',fn_img.session),...
     strcat('lick_CR_',fn_img.date,'_',fn_img.session),...
     strcat('lick_miss_',fn_img.date,'_',fn_img.session),...

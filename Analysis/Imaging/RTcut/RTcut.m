@@ -1,8 +1,9 @@
-animal = "Magenta";
-date = "20210514";
+animal = "Golf";
+date = "20210823";
 
 chan = "chG";
-fn_load = strcat(animal,"_",date,"_RT_",chan,"_fullfield.csv");
+fn_load = "Results.csv";
+% fn_load = strcat(animal,"_",date,"_RT_",chan,"_fullfield.csv");
 cut = readmatrix("cut.xlsx");
 rt = csvread(fn_load,1,0);
 for i = 1:size(cut,1)
@@ -12,6 +13,7 @@ for i = 1:size(cut,1)
     save(fn_save,"table");
 end
 
+% 
 % chan = "RED";
 % fn_load = strcat(animal,"_",date,"_RT_",chan,"_all.csv");
 % cut = readmatrix("cut.xlsx");
