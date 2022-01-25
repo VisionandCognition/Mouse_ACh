@@ -1,5 +1,5 @@
-animal = "Golf";
-date = "20210823";
+animal = "Beta";
+date = "20211206";
 
 chan = "chG";
 fn_load = "Results.csv";

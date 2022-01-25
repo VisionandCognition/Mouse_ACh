@@ -36,6 +36,7 @@ for i = 1:ntrls
     end
 end
 tc(t_lick_abs,4) = 1; % transfer lick from t_lick to tc
+% tc = array2table(tc,'VariableNames',{'absT_ms','stim','rew_delivery','lick'});
 
 % Define each trial 
 ms_before = 1000; % pre length in ms
